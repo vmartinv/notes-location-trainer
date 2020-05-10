@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Simulador de notas</title>
+        <title>Notes location trainer</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -32,7 +32,7 @@
                     running = false;
                     $('#state').removeClass('btn-danger');
                     $('#state').addClass('btn-success');
-                    $('#state').text('Seguir');
+                    $('#state').text('Start');
                 }
                 else{
                     running = true;
@@ -40,7 +40,7 @@
                         newNoteTim();
                     $('#state').removeClass('btn-success');
                     $('#state').addClass('btn-danger');
-                    $('#state').text('Parar');
+                    $('#state').text('Stop');
                 }
             }
             function setInterval(){
@@ -54,18 +54,18 @@
     <body>
         <div class="container" style="margin:20px">
             <div class="form-group">
-                <label for="values">Valores posibles: (separados por espacio)</label>
+                <label for="values">Possible values: (space separated)</label>
                 <input type="text" class="form-control" id="values" value="Do Do# Reb Re Re# Mib Mi Mi# Fab Fa Fa# Solb Sol Sol# Lab La La# Sib Si Si#"> 
             </div>
             <div class="form-inline">
                 <div class="form-inline">
-                    <label for="interval">Intervalo: (en milisegundos)</label>
+                    <label for="interval">Interval: (in milliseconds):</label>
                     <input type="number" class="form-control" size="8" id="interval" oninput="setInterval()" value="5000">
                 </div>
                 <br/>
                 <div class="form-group">
-                    <button id="state" class="btn btn-danger" onclick="startStop()">Parar</button>
-                    <button id="state" class="btn btn-primary" onclick="newNote()">Una nota</button>
+                    <button id="state" class="btn btn-danger" onclick="startStop()">Stop</button>
+                    <button id="state" class="btn btn-primary" onclick="newNote()">One note</button>
                 </div>
             </div>
             <center><h1 id="notes2" style="font-size:120px;"></h1></center>
