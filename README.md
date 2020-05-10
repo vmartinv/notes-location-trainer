@@ -1,5 +1,5 @@
 # Notes location trainer
-This is a random generator of musical notes. Ideal for musicians who wants to quickly locate notes in their instrument, a great exercise for taking your improvisation skills to the next level.
+This is a random generator of musical notes. Ideal for musicians who wants to quickly locate notes in their instrument, a great exercise for taking your improvisation skills to the next level. Created using JQuery and Bootstrap.
 
 ## How to use it
 0. Download ZIP and open `index.html`.
