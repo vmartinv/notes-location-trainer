@@ -10,13 +10,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
             timeout = null;
-            running = true;
+            running = false;
             interval = 5000;
             function newNote(){
                 valores = $('#values').val().split(" ");
                 nota = Math.round(Math.random()*(valores.length-1));
                 $('#notes2').text(valores[nota]);
                 $('#notes').text($('#notes').text()+valores[nota]+' ');
+            }
+            function solfege(){
+                $('#values').val('Do Do# Reb Re Re# Mib Mi Mi# Fab Fa Fa# Solb Sol Sol# Lab La La# Sib Si Si#');
+            }
+            function american(){
+                $('#values').val('C C# Db D D# Eb E E# Fb F F# Gb G G# Ab A A# Bb B B#');
             }
             function newNoteTim(){
                 if(running){
@@ -46,30 +52,50 @@
             function setInterval(){
                 interval = parseInt($('#interval').val());
             }
-            $( document ).ready(function() {
-                setTimeout(newNoteTim, interval);
-            });
         </script>
     </head>
     <body>
-        <div class="container" style="margin:20px">
-            <div class="form-group">
-                <label for="values">Possible values: (space separated)</label>
-                <input type="text" class="form-control" id="values" value="Do Do# Reb Re Re# Mib Mi Mi# Fab Fa Fa# Solb Sol Sol# Lab La La# Sib Si Si#"> 
-            </div>
-            <div class="form-inline">
-                <div class="form-inline">
-                    <label for="interval">Interval: (in milliseconds):</label>
-                    <input type="number" class="form-control" size="8" id="interval" oninput="setInterval()" value="5000">
-                </div>
-                <br/>
-                <div class="form-group">
-                    <button id="state" class="btn btn-danger" onclick="startStop()">Stop</button>
-                    <button id="state" class="btn btn-primary" onclick="newNote()">One note</button>
-                </div>
-            </div>
-            <center><h1 id="notes2" style="font-size:120px;"></h1></center>
-            <h1 id="notes" class="hidden-xs"></h1></h1>
+<div class="container" style="margin:20px">
+        	<div>
+        		<h1>Notes location trainer</h1>
+        		<p>This is a random generator of musical notes. Ideal for musicians who wants to quickly locate notes in their instrument, a great exercise for taking your improvisation skills to the next level.</p>
+        		<p>How to use it:</p>
+        		<ol>
+        			<li>
+        Type the notes you desire to learn, separated with a space.</li>
+        			<li>Type in the interval in which they will appear. </li>
+        			<li>Press start. Now that you have your generator running, try to play the note before the next one comes up.</li>
+        		</ol>
+        	</div>
+        	<br>
+        	<div>
+        		<label for="american">Select notation</label>
+        		<div class="form-group">
+        			<button id="american" class="btn btn-primary" onclick="american()">American(C/D/E...)</button>
+        			<button id="solfege" class="btn btn-primary" onclick="solfege()">Solfège (Do/Re/Mi...)</button>
+        		</div>
+        	</div>
+        	<div class="form-group">
+        		<label for="values">Personalize notes: (space separated)</label>
+        		<input type="text" class="form-control" id="values" value="Do Do# Reb Re Re# Mib Mi Mi# Fab Fa Fa# Solb Sol Sol# Lab La La# Sib Si Si#">
+        	</div>
+        	<div class="form-group">
+        		<label for="interval">Interval: (in milliseconds):</label>
+        		<input type="number" class="form-control" size="8" id="interval" oninput="setInterval()" value="5000">
+        	</div>
+        	<div>
+        			<label for="interval">Use</label>
+        			<div class="form-group">
+        				<button id="state" class="btn btn-success" onclick="startStop()">Start</button>
+        				<button id="state" class="btn btn-primary" onclick="newNote()">One note</button>
+        			</div>
+        	</div>
+            <div>
+        		<center>
+        			<h1 id="notes2" style="font-size:120px;"></h1>
+        		</center>
+        		<h1 id="notes" class="hidden-xs"></h1>
+        	</div>
         </div>
     </body>
 </html>
